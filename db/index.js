@@ -3,6 +3,7 @@ const debug = require("debug")("vacunasApp:db:conexion");
 const chalk = require("chalk");
 const mongoose = require("mongoose");
 const { personasVacunadasEnCiudad } = require("./controladores/personas");
+const { dosisEnCiudad } = require("./controladores/ciudades");
 
 const conectarBD = (hazAlgo) => {
   mongoose.connect(
@@ -21,7 +22,7 @@ const conectarBD = (hazAlgo) => {
       }
       debug(chalk.yellow("Conectado a la base de datos"));
       // hazAlgo();
-      personasVacunadasEnCiudad("60e8277c500167717ca730bb");
+      dosisEnCiudad("60e8277c500167717ca730bb");
     }
   );
 };
