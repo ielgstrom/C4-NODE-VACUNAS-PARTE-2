@@ -28,7 +28,7 @@ const CentroVacunacionSchema = new Schema({
 const CentroVacunacion = model(
   "CentroVacunacion",
   CentroVacunacionSchema,
-  "centrosvacunacion"
+  "PuntoVacunacion"
 );
 
 module.exports = CentroVacunacion;

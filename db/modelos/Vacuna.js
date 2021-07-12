@@ -12,6 +12,6 @@ const VacunaSchema = new Schema({
   },
 });
 
-const Vacuna = model("Vacuna", VacunaSchema, "vacunas");
+const Vacuna = model("Vacuna", VacunaSchema, "Vacuna");
 
 module.exports = Vacuna;

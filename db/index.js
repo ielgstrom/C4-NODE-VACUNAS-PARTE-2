@@ -2,6 +2,7 @@ require("dotenv").config();
 const debug = require("debug")("vacunasApp:db:conexion");
 const chalk = require("chalk");
 const mongoose = require("mongoose");
+const { personasVacunadasEnCiudad } = require("./controladores/personas");
 
 const conectarBD = (hazAlgo) => {
   mongoose.connect(
@@ -19,7 +20,8 @@ const conectarBD = (hazAlgo) => {
         return;
       }
       debug(chalk.yellow("Conectado a la base de datos"));
-      hazAlgo();
+      // hazAlgo();
+      personasVacunadasEnCiudad("60e8277c500167717ca730bb");
     }
   );
 };
