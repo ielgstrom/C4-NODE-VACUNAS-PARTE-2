@@ -1,4 +1,5 @@
 const Persona = require("../modelos/Persona");
+const Ciudad = require("../modelos/Ciudad");
 
 const crearPersonaVacunada = async (
   dni,
@@ -22,6 +23,22 @@ const crearPersonaVacunada = async (
   return persona;
 };
 
+const personasVacunadasEnCiudad = async (idCiudad) => {
+  const ciudad = await Ciudad.findById(idCiudad).populate("puntosVacunacion");
+
+  const idPuntosVacunacion = ciudad.puntosVacunacion.map(
+    (puntoVacunacionArr) => puntoVacunacionArr._id
+  );
+
+  console.log(idPuntosVacunacion);
+  const personas = await Persona.find({
+    puntoVacunacion: { $in: idPuntosVacunacion },
+  });
+
+  console.log(personas);
+  return personas;
+};
 module.exports = {
   crearPersonaVacunada,
+  personasVacunadasEnCiudad,
 };

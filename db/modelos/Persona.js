@@ -7,7 +7,7 @@ const PersonaSchema = new Schema({
     unique: true,
     required: true,
   },
-  centroVacunacion: {
+  puntoVacunacion: {
     type: Schema.Types.ObjectId,
     ref: "CentroVacunacion",
     required: true,
@@ -20,6 +20,6 @@ const PersonaSchema = new Schema({
   dosis: [Date],
 });
 
-const Persona = model("Persona", PersonaSchema, "personas");
+const Persona = model("Persona", PersonaSchema, "Persona");
 
 module.exports = Persona;
