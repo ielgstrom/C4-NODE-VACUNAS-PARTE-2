@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon -q ."
+    "dev": "nodemon cli/init.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,7 @@
     "inquirer": "^8.1.1",
     "luxon": "^2.0.1",
     "mongoose": "^5.13.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
   }
 }
