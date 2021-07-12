@@ -23,19 +23,17 @@ const crearPersonaVacunada = async (
   return persona;
 };
 
-const personasVacunadasEnCiudad = async (idCiudad) => {
-  const ciudad = await Ciudad.findById(idCiudad).populate("puntosVacunacion");
+const personasVacunadasEnCiudad = async (idCiudad, rellenar = "") => {
+  const ciudad = await Ciudad.findById(idCiudad).populate(rellenar);
 
   const idPuntosVacunacion = ciudad.puntosVacunacion.map(
     (puntoVacunacionArr) => puntoVacunacionArr._id
   );
 
-  console.log(idPuntosVacunacion);
   const personas = await Persona.find({
     puntoVacunacion: { $in: idPuntosVacunacion },
   });
 
-  console.log(personas);
   return personas;
 };
 module.exports = {
