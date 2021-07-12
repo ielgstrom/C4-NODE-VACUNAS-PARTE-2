@@ -3,6 +3,16 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
+// Agregamos lo que requerimos
+const {
+  listarVacunas,
+  listarVacunasCentro,
+  anyadirVacunaCentro,
+  getDosisVacuna
+} = require("../db/controladores/vacunas");
+
+const Vacuna = require("../db/modelos/Vacuna");
+
 // Settings
 app.set("port", process.env.PORT || 3000);
 
@@ -17,6 +27,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
+// routes para las operaciones con vacunas
+
+
 
 // Starting the server
 // Configuracion package json : "dev": "nodemon cli/init.js"
