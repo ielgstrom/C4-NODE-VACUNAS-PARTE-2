@@ -41,3 +41,14 @@ app.listen(app.get("port"), () => {
   console.log(`Server on port ${app.set("port")}`);
 });
 
+// Error de ruta no encontrada
+app.use((req, res, next) => {
+  res.status(404).send({ error: true, message: "Recurso no encontrado" });
+});
+
+// Manejador de errores
+app.use((err, req, res, next) => {
+  const codigo = err.codigo || 500;
+  const mensajeError = err.codigo ? err.message : "Ha habido un pete general";
+  res.status(codigo).send({ error: true, mensaje: mensajeError });
+});
