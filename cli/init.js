@@ -30,7 +30,9 @@ app.get("/", (req, res) => {
 
 // routes para las operaciones con vacunas
 
-
+app.get("/listarVacunas", (req, res) => {
+  res.send("Se esta listando las vacunas");
+});
 
 // Starting the server
 // Configuracion package json : "dev": "nodemon cli/init.js"
