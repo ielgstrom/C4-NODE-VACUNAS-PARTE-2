@@ -30,8 +30,40 @@ app.get("/", (req, res) => {
 
 // routes para las operaciones con vacunas
 
-app.get("/listarVacunas", (req, res) => {
-  res.send("Se esta listando las vacunas");
+app.get("/vacunacion/centros/ciudad/:idCiudad", (req, res) => {
+  res.send("Devuelve un array con los centros de vacunación de la ciudad");
+});
+
+app.get("/vacunacion/centros/centro/:idCentro", (req, res) => {
+  res.send("Devuelve la información sobre un centro");
+});
+
+app.get("/vacunacion/vacunados/ciudad/:idCiudad ", (req, res) => {
+  res.send("Devuelve un array con las personas que se han vacunado en una ciudad");
+});
+
+app.get("/vacunacion/vacunados/centro/:idCentro", (req, res) => {
+  res.send("Devuelve un array con las personas que se han vacunado en un centro");
+});
+
+app.get("/vacunacion/vacunados/persona/:dni", (req, res) => {
+  res.send("Devuelve la información de una persona vacunada a partir de su DNI");
+});
+
+app.post("/vacunacion/vacunados/persona", (req, res) => {
+  res.send("Para crear una persona vacunada");
+});
+
+app.put("/vacunacion/vacunados/persona/:idPersona", (req, res) => {
+  res.send("Para modificar una persona vacunada");
+});
+
+app.delete("/vacunacion/vacunados/persona/:idPersona", (req, res) => {
+  res.send("Para borrar una persona vacunada");
+});
+
+app.get("/vacunacion/vacunas/ciudad/:idCiudad", (req, res) => {
+  res.send("Devuelve cuántas dosis de cada vacuna se han administrado en una ciudad");
 });
 
 // Starting the server
